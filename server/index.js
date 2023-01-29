@@ -3,6 +3,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const connectDatabase = require("./ConnectDatabase/connectDatabase/connect");
 const AuthRouter = require("./Router/authRouter");
+const AppRouter = require("./Router/Approuter");
 
 const server = express();
 
@@ -15,7 +16,10 @@ server.use(morgan('tiny'));
 server.get("/",(req,res)=>{
     res.send("HELLO WORLD!")
 })
+
 server.use("/auth",AuthRouter);
+
+server.use("/todo",AppRouter);
 
 
 const port = process.argv[2] || 3004;

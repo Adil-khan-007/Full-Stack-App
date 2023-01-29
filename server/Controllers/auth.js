@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken")
 
 const generateToken = (user)=>{
     const {email,name,age} = user;
-    return jwt.sign({email,name,age},"mynameiskingkhan");
+   return  jwt.sign({email,name,age},"hush");
 }
 
 const register = async (req,res)=>{
