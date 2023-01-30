@@ -15,7 +15,7 @@ function Individual(props) {
     const fetchSingleData = ()=>{
         const token = JSON.parse(localStorage.getItem("token"));
 
-        axios.get(`http://localhost:3004/todo/single/${id}`,{
+        axios.get(`https://lime-tough-nightingale.cyclic.app/todo/single/${id}`,{
             headers : {
                 "Content-Type" : "application/json",
                 "Authorization" : `Bearer ${token}`

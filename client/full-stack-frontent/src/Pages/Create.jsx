@@ -23,7 +23,7 @@ function Create(props) {
     const handleCreate = ()=>{
         const token = JSON.parse(localStorage.getItem("token"));
 
-        axios.post(`http://localhost:3004/todo/create`,create,{
+        axios.post(`https://lime-tough-nightingale.cyclic.app/todo/create`,create,{
             headers : {
                 "Content-Type" : "application/json",
                 "Authorization" : `Bearer ${token}`

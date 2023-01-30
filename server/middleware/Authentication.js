@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const UserModel = require("../ConnectDatabase/Models/auth");
+require("dotenv").config();
 
 const Authentication = (req,res,next)=>{
     const token = req.headers['authorization'].split(" ").pop();
@@ -8,7 +9,7 @@ const Authentication = (req,res,next)=>{
         return res.status(401).send({message : "Please login first"})
      }
       
-      const jwtToken = jwt.verify(token,"hush");
+      const jwtToken = jwt.verify(token,process.env.SECRET);
 
     if(!jwtToken){
          return res.status(401).send({message : "You are not Authorized"})

@@ -24,7 +24,7 @@ function Edit(props) {
     const handleEdit = ()=>{
         const token = JSON.parse(localStorage.getItem("token"));
 
-        axios.patch(`http://localhost:3004/todo/edit/${id}`,edit,{
+        axios.patch(`https://lime-tough-nightingale.cyclic.app/${id}`,edit,{
             headers : {
                 "Content-Type" : "application/json",
                 "Authorization" : `Bearer ${token}`

@@ -1,9 +1,10 @@
 const UserModel = require("../ConnectDatabase/Models/auth")
 const jwt = require("jsonwebtoken")
+require("dotenv").config();
 
 const generateToken = (user)=>{
     const {email,name,age} = user;
-   return  jwt.sign({email,name,age},"hush");
+   return  jwt.sign({email,name,age},process.env.SECRET);
 }
 
 const register = async (req,res)=>{

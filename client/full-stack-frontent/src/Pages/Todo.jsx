@@ -15,7 +15,7 @@ function Todo(props) {
 
         const token  = JSON.parse(localStorage.getItem("token"));
 
-        axios.get("http://localhost:3004/todo",{
+        axios.get("https://lime-tough-nightingale.cyclic.app/todo",{
             headers : {
                 "Content-Type" : "application/json",
                  "Authorization" : `Bearer ${token}` 
@@ -28,7 +28,7 @@ function Todo(props) {
     const handleDelete = (id)=>{
         const token  = JSON.parse(localStorage.getItem("token"));
 
-       axios.delete(`http://localhost:3004/todo/delete/${id}`,{
+       axios.delete(`https://lime-tough-nightingale.cyclic.app/todo/delete/${id}`,{
         headers : {
             "Authorization" : `Bearer ${token}`,
             "Content-Type" : "application/json"

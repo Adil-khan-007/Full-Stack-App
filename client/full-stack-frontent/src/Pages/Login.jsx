@@ -19,7 +19,7 @@ function Login(props) {
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        axios.post("http://localhost:3004/auth/login",form)
+        axios.post("https://lime-tough-nightingale.cyclic.app/auth/login",form)
         .then((res)=> { 
             localStorage.setItem("token",JSON.stringify(res.data.token));
             navigate("/dashboard");

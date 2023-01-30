@@ -21,7 +21,7 @@ function Signup(props) {
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-         axios.post("http://localhost:3004/auth/signup",form).then((res)=>{
+         axios.post("https://lime-tough-nightingale.cyclic.app/auth/signup",form).then((res)=>{
             if(res.data.message === "Registration Succesfully"){
                 navigate("/login");
             }
