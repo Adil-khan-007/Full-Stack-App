@@ -1,12 +1,14 @@
 import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Login(props) {
     const [form,setForm] = useState({
         email : "",
         password : "",
     })
+    const navigate = useNavigate();
 
     const handleChange = (e)=>{
             setForm({
@@ -18,7 +20,10 @@ function Login(props) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         axios.post("http://localhost:3004/auth/login",form)
-        .then((res)=> localStorage.setItem("token",JSON.stringify(res.data.token)))
+        .then((res)=> { 
+            localStorage.setItem("token",JSON.stringify(res.data.token));
+            navigate("/dashboard");
+        })
         .catch(err=>console.log(err))
     }
 

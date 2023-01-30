@@ -5,7 +5,7 @@ const Authentication = require("../middleware/Authentication");
 
 const AppRouter = express.Router();
 
-AppRouter.get("/",async (req,res)=>{
+AppRouter.get("/",Authentication,async (req,res)=>{
     try{
          const data = await TodoModel.find();
          res.send({data : data})
