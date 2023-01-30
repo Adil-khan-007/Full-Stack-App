@@ -2,7 +2,7 @@ const mongoose  = require("mongoose");
 
 const TodoSchema = new mongoose.Schema({
     name : String,
-    age : Number,
+    age : String,
     image : String,
     gender : String,
     hobby : String

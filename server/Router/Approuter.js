@@ -5,9 +5,20 @@ const Authentication = require("../middleware/Authentication");
 
 const AppRouter = express.Router();
 
-AppRouter.get("/",Authentication,async (req,res)=>{
+AppRouter.get("/",async (req,res)=>{
     try{
          const data = await TodoModel.find();
+         res.send({data : data})
+    }
+    catch(err){
+        res.status(404).send("Something went wrong");
+    }
+})
+
+
+AppRouter.get("/single/:id",async (req,res)=>{
+    try{
+         const data = await TodoModel.findById(req.params.id);
          res.send({data : data})
     }
     catch(err){

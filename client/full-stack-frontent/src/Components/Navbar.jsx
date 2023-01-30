@@ -20,6 +20,7 @@ function Navbar(props) {
         <div style={{display:"flex",justifyContent:"space-evenly",backgroundColor:"black",alignItems:"center",height : "60px"}}>
             <Link to="/">Home</Link>
             <Link to="/dashboard">Dashboard</Link>
+            <Link to="/create">Create</Link>
             {token ? <button onClick={handleLogout}>Logout</button> : <Link to="/login">Login</Link>}
             <Link to="/signup">SignUp</Link>
         </div>

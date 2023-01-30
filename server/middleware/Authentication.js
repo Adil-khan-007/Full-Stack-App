@@ -9,7 +9,6 @@ const Authentication = (req,res,next)=>{
      }
       
       const jwtToken = jwt.verify(token,"hush");
-      console.log(jwtToken)
 
     if(!jwtToken){
          return res.status(401).send({message : "You are not Authorized"})

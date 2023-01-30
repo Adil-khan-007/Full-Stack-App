@@ -2,6 +2,7 @@ import React from 'react';
 import axios from "axios";
 import { useEffect } from 'react';
 import { useState } from 'react';
+import {Link} from "react-router-dom";
 
 function Todo(props) {
     const [todo,setData] = useState([]);
@@ -24,6 +25,22 @@ function Todo(props) {
         .catch(err=>console.log(err));
     }
 
+    const handleDelete = (id)=>{
+        const token  = JSON.parse(localStorage.getItem("token"));
+
+       axios.delete(`http://localhost:3004/todo/delete/${id}`,{
+        headers : {
+            "Authorization" : `Bearer ${token}`,
+            "Content-Type" : "application/json"
+        }
+       })
+       .then((res)=>{
+          fetchData();
+       })
+       .catch(err=>console.log(err));
+    }
+    
+
     return (
         <div style={{width : "30%",margin:"auto"}}>
             <h1>TODO</h1>
@@ -41,11 +58,11 @@ function Todo(props) {
                     {
                         todo.map((el,i)=>{
                             return <tr key={i}>
-                                <td>{el.name}</td>
+                                <td><Link to={`/single/${el._id}`} style={{color:"red"}}>{el.name}</Link></td>
                                 <td>{el.age}</td>
                                 <td>{el.gender}</td>
-                                <td>edit</td>
-                                <td>delete</td>
+                                <td><Link to={`/edit/${el._id}`} style={{color:"black"}}>edit</Link></td>
+                                <td><button onClick={()=>handleDelete(el._id)}>delete</button></td>
                             </tr>
                         })
                     }
